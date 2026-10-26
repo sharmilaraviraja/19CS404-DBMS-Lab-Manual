@@ -40,18 +40,21 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+
+| **Relationship**                | **Cardinality** | **Participation**     | **Notes**                            |
+| ------------------------------- | --------------- | --------------------- | ------------------------------------ |
+| Member–Program                  | M\:N            | Partial on both sides | Attendance links Members to Programs |
+| Program–Trainers                | M\:N            | Partial               | Trainers may run multiple programs   |
+| Member–PersonalTrainingSession  | 1\:M            | Total on PTS side     | Each session must belong to a member |
+| Trainer–PersonalTrainingSession | 1\:M            | Total on PTS side     | Each session requires one trainer    |
+| Member–Attendance               | 1\:M            | Total on Attendance   | Attendance entry refer to a member   |
+| Program–Attendance              | 1\:M            | Total                 | Attendance linked to programs        |
+| Member–Payment                  | 1\:M            | Total on Payment      | Payment must be made by a member     |
 
 ### Assumptions
-- 
-- 
-- 
-
----
+- A member can join multiple programs.
+-Trainers can be assigned to multiple programs.
+-Personal training sessions always involve one trainer and one member.
 
 # Scenario B: City Library Event & Book Lending System
 
